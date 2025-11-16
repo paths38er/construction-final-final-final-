@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .blueprint-overlay {
+    background-image:
+      linear-gradient(0deg, transparent 24%, rgba(122, 122, 122, .05) 25%, rgba(122, 122, 122, .05) 26%, transparent 27%, transparent 74%, rgba(122, 122, 122, .05) 75%, rgba(122, 122, 122, .05) 76%, transparent 77%, transparent),
+      linear-gradient(90deg, transparent 24%, rgba(122, 122, 122, .05) 25%, rgba(122, 122, 122, .05) 26%, transparent 27%, transparent 74%, rgba(122, 122, 122, .05) 75%, rgba(122, 122, 122, .05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+  }
+
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(122, 122, 122, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(122, 122, 122, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .text-reveal {
+    animation: textReveal 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes textReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeInUp 0.5s ease-out;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+      opacity: 0.6;
+    }
+  }
+
+  .animate-float {
+    animation: float linear infinite;
+  }
+
+  .floating-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(0, 164, 184, 0.5);
+    border-radius: 50%;
+    animation: float linear infinite;
+  }
+
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      #00a4b8 0%,
+      #c72c7e 25%,
+      #00a4b8 50%,
+      #c72c7e 75%,
+      #00a4b8 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #c72c7e;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #00a4b8;
+}
